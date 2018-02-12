@@ -1,0 +1,29 @@
+﻿html
+{
+    margin: 0;
+    height: 100%;
+}
+body
+{
+    margin: 0;
+    background-color: #CCCCCC;
+    font-family: Calibri, Arial, Helvetica, Sans-Serif;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+div.frame
+{
+    background-color: #FFFFFF;
+    border: 1px solid #404040;
+    overflow: auto;
+}
+.CodeMirror-scroll
+{
+    height: 100%;
+    position:absolute;
+    top: 0;
+    bottom:0;
+    left: 0;
+    right: 0;
+}
