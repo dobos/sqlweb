@@ -1,13 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Jhu.SqlWeb.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Jhu.SqlWeb.Default" Theme="General" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
-    <script src="editor/lib/codemirror.js"></script>
-    <script src="editor/mode/mysql/mysql.js"></script>
-    <script type="text/javascript" language="javascript">
+    <script src="Scripts/CodeMirror/lib/codemirror.js"></script>
+    <script src="Scripts/CodeMirror/mode/mysql/mysql.js"></script>
+    <script type="text/javascript">
         function LoadWindow() {
             ResizeWindow();
         }
@@ -54,7 +54,7 @@
         window.onload = LoadWindow;
         window.onresize = ResizeWindow;
     </script>
-    <link rel="stylesheet" href="editor/lib/codemirror.css" />
+    <link rel="stylesheet" href="Scripts/CodeMirror/lib/codemirror.css" />
 </head>
 <body>
     <form id="form1" runat="server">
