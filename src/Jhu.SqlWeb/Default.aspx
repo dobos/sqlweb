@@ -55,53 +55,58 @@
         window.onresize = ResizeWindow;
     </script>
     <link rel="stylesheet" href="Scripts/CodeMirror/lib/codemirror.css" />
+    <style>
+        .CodeMirror {
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div style="position: absolute; visibility: hidden; top: 4px; left: 4px; width: 925px;
-        height: 24px;" id="toolbarDiv">
-        <asp:Button ID="Refresh" runat="server" Text="Refresh" OnClick="Refresh_Click" />
-        &nbsp;|
+        <div style="position: absolute; visibility: hidden; top: 4px; left: 4px; width: 925px; height: 24px;"
+            id="toolbarDiv">
+            <asp:Button ID="Refresh" runat="server" Text="Refresh" OnClick="Refresh_Click" />
+            &nbsp;|
         <asp:Button ID="Syntax" runat="server" Text="Syntax" OnClick="Syntax_Click" />
-        &nbsp;<asp:Button ID="Execute" runat="server" Text="Execute" OnClick="Execute_Click" />
-        &nbsp;<asp:Button ID="Plan" runat="server" Enabled="False" Text="Plan" />
-        |
+            &nbsp;<asp:Button ID="Execute" runat="server" Text="Execute" OnClick="Execute_Click" />
+            &nbsp;<asp:Button ID="Plan" runat="server" Enabled="False" Text="Plan" />
+            |
         <asp:DropDownList runat="server" ID="Samples" AutoPostBack="true" OnSelectedIndexChanged="Samples_SelectedIndexChanged">
             <asp:ListItem>(select sample query)</asp:ListItem>
         </asp:DropDownList>
-    </div>
-    <div style="position: absolute; visibility: hidden; top: 40px; left: 4px; width: 925px;
-        height: 20px;" id="statusDiv">
-        <asp:Label ID="Status" runat="server" Text="Ready"></asp:Label>
-    </div>
-    <div style="position: absolute; visibility: hidden; top: 88px; left: 5px; width: 174px;
-        height: 548px;" id="browserDiv" class="frame">
-        <asp:TreeView ID="BrowserTree" runat="server">
-            <Nodes>
-                <asp:TreeNode Text="New Node" Value="New Node"></asp:TreeNode>
-            </Nodes>
-        </asp:TreeView>
-    </div>
-    <div style="position: absolute; visibility: hidden; top: 87px; left: 191px; width: 739px;
-        height: 330px; overflow: hidden" id="queryDiv" class="frame">
-        <asp:TextBox ID="Query" runat="server" TextMode="MultiLine"></asp:TextBox>
-        <script type="text/javascript">
-            function InitEditor() {
-                var myCodeMirror = CodeMirror.fromTextArea(document.getElementById("<%= Query.ClientID %>"), {
-                    lineNumbers: true,
-                    matchBrackets: true,
-                    indentUnit: 4,
-                    mode: "text/x-mysql"
-                });
-            }
+        </div>
+        <div style="position: absolute; visibility: hidden; top: 40px; left: 4px; width: 925px; height: 20px;"
+            id="statusDiv">
+            <asp:Label ID="Status" runat="server" Text="Ready"></asp:Label>
+        </div>
+        <div style="position: absolute; visibility: hidden; top: 88px; left: 5px; width: 174px; height: 548px;"
+            id="browserDiv" class="frame">
+            <asp:TreeView ID="BrowserTree" runat="server">
+                <Nodes>
+                    <asp:TreeNode Text="New Node" Value="New Node"></asp:TreeNode>
+                </Nodes>
+            </asp:TreeView>
+        </div>
+        <div style="position: absolute; visibility: hidden; top: 87px; left: 191px; width: 739px; height: 330px; overflow: hidden"
+            id="queryDiv" class="frame">
+            <asp:TextBox ID="Query" runat="server" TextMode="MultiLine"></asp:TextBox>
+            <script type="text/javascript">
+                function InitEditor() {
+                    var myCodeMirror = CodeMirror.fromTextArea(document.getElementById("<%= Query.ClientID %>"), {
+                        lineNumbers: true,
+                        matchBrackets: true,
+                        indentUnit: 4,
+                        mode: "text/x-mysql"
+                    });
+                }
 
-            InitEditor();
-        </script>
-    </div>
-    <div style="position: absolute; visibility: hidden; top: 427px; left: 190px; width: 733px;
-        height: 210px;" id="resultsDiv" class="frame">
-        <asp:Literal runat="server" ID="ResultsGrid"></asp:Literal>
-    </div>
+                InitEditor();
+            </script>
+        </div>
+        <div style="position: absolute; visibility: hidden; top: 427px; left: 190px; width: 733px; height: 210px;"
+            id="resultsDiv" class="frame">
+            <asp:Literal runat="server" ID="ResultsGrid"></asp:Literal>
+        </div>
     </form>
 </body>
 </html>

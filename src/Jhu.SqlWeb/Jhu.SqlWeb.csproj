@@ -73,21 +73,6 @@
   <ItemGroup>
     <Content Include="App_Themes\General\layout.css" />
     <Content Include="Default.aspx" />
-    <Content Include="editor\lib\codemirror.css" />
-    <Content Include="editor\lib\codemirror.js" />
-    <Content Include="editor\lib\util\dialog.css" />
-    <Content Include="editor\lib\util\dialog.js" />
-    <Content Include="editor\lib\util\foldcode.js" />
-    <Content Include="editor\lib\util\formatting.js" />
-    <Content Include="editor\lib\util\javascript-hint.js" />
-    <Content Include="editor\lib\util\overlay.js" />
-    <Content Include="editor\lib\util\runmode.js" />
-    <Content Include="editor\lib\util\search.js" />
-    <Content Include="editor\lib\util\searchcursor.js" />
-    <Content Include="editor\lib\util\simple-hint.css" />
-    <Content Include="editor\lib\util\simple-hint.js" />
-    <Content Include="editor\mode\mysql\mysql.js" />
-    <Content Include="editor\mode\plsql\plsql.js" />
     <Content Include="queries\Sample.sql" />
     <Content Include="Scripts\CodeMirror\addon\comment\comment.js" />
     <Content Include="Scripts\CodeMirror\addon\comment\continuecomment.js" />
