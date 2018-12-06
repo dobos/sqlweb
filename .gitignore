@@ -322,3 +322,4 @@ ASALocalRun/
 # MSBuild Binary and Structured Log
 *.binlog
 /src/Jhu.SqlWeb/Web.config
+/src/Jhu.SqlWeb/Scripts

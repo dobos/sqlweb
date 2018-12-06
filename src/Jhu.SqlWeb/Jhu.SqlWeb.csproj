@@ -74,6 +74,7 @@
     <Content Include="App_Themes\General\layout.css" />
     <Content Include="Default.aspx" />
     <Content Include="queries\Sample.sql" />
+    <Content Include="schema.htm" />
     <Content Include="Scripts\CodeMirror\addon\comment\comment.js" />
     <Content Include="Scripts\CodeMirror\addon\comment\continuecomment.js" />
     <Content Include="Scripts\CodeMirror\addon\dialog\dialog.css" />
