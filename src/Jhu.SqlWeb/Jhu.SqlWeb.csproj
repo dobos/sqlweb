@@ -14,7 +14,7 @@
     <RootNamespace>Jhu.SqlWeb</RootNamespace>
     <AssemblyName>Jhu.SqlWeb</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -471,6 +471,10 @@
     <Content Include="Scripts\CodeMirror\theme\xq-light.css" />
     <Content Include="Scripts\CodeMirror\theme\yeti.css" />
     <Content Include="Scripts\CodeMirror\theme\zenburn.css" />
+    <Content Include="Scripts\HtmlQueryPlan\css\qp.css" />
+    <Content Include="Scripts\HtmlQueryPlan\css\qp_icons.png" />
+    <Content Include="Scripts\HtmlQueryPlan\dist\qp.js" />
+    <Content Include="Scripts\HtmlQueryPlan\dist\qp.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -498,7 +502,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>10110</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:10110/</IISUrl>
+          <IISUrl>http://localhost/Jhu.SqlWeb</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -67,7 +67,46 @@ namespace Jhu.SqlWeb
                     }
                 }
 
+                resultsDiv.Visible = true;
+                planDiv.Visible = false;
                 ResultsGrid.Text = output.ToString();
+
+                StatusReady();
+            }
+            catch (Exception ex)
+            {
+                StatusError(ex);
+            }
+        }
+
+        protected void Plan_Click(object sender, EventArgs e)
+        {
+            // GRANT SHOWPLAN TO [user]
+
+            try
+            {
+                using (SqlConnection cn = OpenConnection())
+                {
+                    using (var cmd = new SqlCommand("SET SHOWPLAN_XML ON", cn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(Query.Text, cn))
+                    {
+                        cmd.CommandTimeout = 10;
+                        var plan = (string)cmd.ExecuteScalar();
+                        planXml.Value = plan;
+                    }
+
+                    using (var cmd = new SqlCommand("SET SHOWPLAN_XML OFF", cn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                resultsDiv.Visible = false;
+                planDiv.Visible = true;
 
                 StatusReady();
             }

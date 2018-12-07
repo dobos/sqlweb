@@ -5,6 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
+    <script src="Scripts/HtmlQueryPlan/dist/qp.min.js"></script>
+    <link rel="stylesheet" href="Scripts/HtmlQueryPlan/css/qp.css" />
     <script src="Scripts/CodeMirror/lib/codemirror.js"></script>
     <script src="Scripts/CodeMirror/mode/mysql/mysql.js"></script>
     <script type="text/javascript">
@@ -38,17 +40,30 @@
             qu.top = parseInt(br.top) + "px";
             qu.height = ((parseInt(br.height) - 4) / 2) + "px";
 
-            var re = document.getElementById("resultsDiv").style;
-            re.left = parseInt(qu.left) + "px";
-            re.width = parseInt(qu.width) + "px";
-            re.top = (parseInt(qu.top) + parseInt(qu.height) + 4) + "px";
-            re.height = (fh - parseInt(re.top) - 4) + "px";
+            if (document.getElementById("resultsDiv")) {
+                var re = document.getElementById("resultsDiv").style;
+                re.left = parseInt(qu.left) + "px";
+                re.width = parseInt(qu.width) + "px";
+                re.top = (parseInt(qu.top) + parseInt(qu.height) + 4) + "px";
+                re.height = (fh - parseInt(re.top) - 4) + "px";
+
+                re.visibility = "visible";
+            }
+
+            if (document.getElementById("planDiv")) {
+                var pl = document.getElementById("planDiv").style;
+                pl.left = parseInt(qu.left) + "px";
+                pl.width = parseInt(qu.width) + "px";
+                pl.top = (parseInt(qu.top) + parseInt(qu.height) + 4) + "px";
+                pl.height = (fh - parseInt(pl.top) - 4) + "px";
+
+                pl.visibility = "visible";
+            }
 
             tb.visibility = "visible";
             st.visibility = "visible";
             br.visibility = "visible";
             qu.visibility = "visible";
-            re.visibility = "visible";
         }
 
         window.onload = LoadWindow;
@@ -69,7 +84,7 @@
             &nbsp;|
         <asp:Button ID="Syntax" runat="server" Text="Syntax" OnClick="Syntax_Click" />
             &nbsp;<asp:Button ID="Execute" runat="server" Text="Execute" OnClick="Execute_Click" />
-            &nbsp;<asp:Button ID="Plan" runat="server" Enabled="False" Text="Plan" />
+            &nbsp;<asp:Button ID="Plan" runat="server" Text="Plan" OnClick="Plan_Click" />
             |
         <asp:DropDownList runat="server" ID="Samples" AutoPostBack="true" OnSelectedIndexChanged="Samples_SelectedIndexChanged">
             <asp:ListItem>(select sample query)</asp:ListItem>
@@ -103,10 +118,15 @@
                 InitEditor();
             </script>
         </div>
-        <div style="position: absolute; visibility: hidden; top: 427px; left: 190px; width: 733px; height: 210px;"
-            id="resultsDiv" class="frame">
+        <asp:Panel runat="server" ID="resultsDiv" style="position: absolute; visibility: hidden; top: 427px; left: 190px; width: 733px; height: 210px;" CssClass="frame">
             <asp:Literal runat="server" ID="ResultsGrid"></asp:Literal>
-        </div>
+        </asp:Panel>
+        <asp:Panel runat="server" ID="planDiv" style="position: absolute; visibility: hidden; top: 427px; left: 190px; width: 733px; height: 210px;" CssClass="frame">
+            <asp:HiddenField runat="server" ID="planXml"></asp:HiddenField>
+            <script>
+                QP.showPlan(document.getElementById("planDiv"), document.getElementById("planXml").value);
+            </script> 
+        </asp:Panel>
     </form>
 </body>
 </html>
